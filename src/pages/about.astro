@@ -1,5 +1,23 @@
 ---
+import '../styles/global.css';
 
+const pageTitle = "私について";
+
+const identity ={
+	name: "zubasyan",
+	country: "日本",
+	hobbies: ["Tetris","競プロ","いろいろ"]
+};
+
+const skills = ["C++","Python"]
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase"
 ---
 
 <html lang="ja">
@@ -8,18 +26,46 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
+		<style define:vars={{skillColor, fontWeight, textCase}}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+			.skill {
+				color: var(--skillColor);
+				font-weight: var(--fontWeight);
+				text-transform: var(--textCase);
+			}
+    </style>
 	</head>
 	<body>
 		<a href="/site/">ホーム</a>
 		<a href="/site/about/">概要</a>
 		<a href="/site/blog/">ブログ</a>
 		<h1>私のAstroサイト</h1>
-		<h1>私について</h1>
+		<h1>{pageTitle}</h1>
 		<h2>... そして私の新しいAstroサイトについて！</h2>
 
 		<p>私はAstroの入門チュートリアルを進めています。これは私のウェブサイトの2番目のページで、自分で作った初めてのページです！</p>
 
 		<p>このサイトはチュートリアルを進めるにつれて更新されていきます。定期的にチェックして、私の旅の様子を見に来てください！</p>
+
+		<p>以下は私に関するいくつかの事実です。</p>
+		<ul>
+			<li>私の名前は{identity.name}です。</li>
+			<li>私は{identity.country}に住んでいます。</li>
+			{identity.hobbies.length>=2&&
+			<li>私の二つの趣味は{identity.hobbies[0]}と{identity.hobbies[1]}です。</li>}
+		</ul>
+		<p>スキルは以下の通りです。</p>
+		<ul>
+			{skills.map((skill) => <li class="skill">{skill}</li>)}
+		</ul>
+
+		{happy &&<p>I am happy to be learning Astro! Astroを学べて幸せです！</p>}
+		{finished && <p>私はすべてを終えました！</p>}
+		{!finished && <p>私はまだ終わっていません！</p>}
+		{goal === 3 ? <p>My goal is to finish in 3 days. 3日で終えるのが目標です。</p> : <p>My goal is not 3 days. 3日が目標ではありません。</p>}
 	</body>
 </html>
