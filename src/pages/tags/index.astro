@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
+
+
+const tags = [...new Set(
+  allPosts.map((post: any) => post.frontmatter.tags)
+    .flat())];
+---
+<style>
+  a {
+    color: #00539F;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: #F8FCFD;
+  }
+</style>
+
+<BaseLayout pageTitle="私について">
+  <h2>ようこそ、私のホームページへ</h2>
+  <h2>... そして私の新しいAstroサイトについて！</h2>
+  <div class="tags">
+    {tags.map((tag) => (
+    <p><a href={`/site/tags/${tag}`} class="tag">{tag}</a></p>
+    ))}
+  </div>
+
+</BaseLayout>
