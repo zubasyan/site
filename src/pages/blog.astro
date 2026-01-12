@@ -1,24 +1,11 @@
 ---
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogPost from '../components/BlogPost.astro';
+const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
 ---
-
-<html lang="ja">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<a href="/site/">ホーム</a>
-    <a href="/site/about/">概要</a>
-    <a href="/site/blog/">ブログ</a>
-		<h1>私のあすとろ</h1>
+<BaseLayout pageTitle="ブログ">
     <ul>
-      <li><a href="/site/posts/post-1/">記事1</a></li>
-      <li><a href="/site/posts/post-2/">記事2</a></li>
-      <li><a href="/site/posts/post-3/">記事3</a></li>
+			{allPosts.map((post: any)=> <BlogPost url={post.url} title={post.frontmatter.title} />)}
     </ul>
-	</body>
-</html>
+		
+</BaseLayout>

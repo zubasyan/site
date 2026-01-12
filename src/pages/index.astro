@@ -1,20 +1,7 @@
 ---
-import '../styles/global.css';
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="ja">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<a href="/site/">ホーム</a>
-    <a href="/site/about/">概要</a>
-    <a href="/site/blog/">ブログ</a>
-		<h1>私のあすとろ</h1>
-	</body>
-</html>
+<BaseLayout pageTitle="ホームページ">
+	<h2>ようこそ、私のホームページへ</h2>
+</BaseLayout>
