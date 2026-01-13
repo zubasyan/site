@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
+const allPosts = Object.values(import.meta.glob('../blog/**/*.md', { eager: true }));
 
 
 const tags = [...new Set(
@@ -35,5 +35,4 @@ const tags = [...new Set(
     <p><a href={`/site/tags/${tag}`} class="tag">{tag}</a></p>
     ))}
   </div>
-
 </BaseLayout>

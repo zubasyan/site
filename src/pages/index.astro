@@ -3,14 +3,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Greeting from '../components/Greeting';
 import BlogPost from '../components/BlogPost.astro';
 //最新記事5件をとる
-const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
+const allPosts = Object.values(import.meta.glob('./blog/**/*.md', { eager: true }));
 const latestPosts = allPosts
 	.sort((a: any, b: any) => new Date(a.frontmatter.pubDate).getTime() - new Date(b.frontmatter.pubDate).getTime())
 	.slice(0, Math.min(5, allPosts.length));
 ---
 
 <BaseLayout pageTitle="ホームページ">
-	<Greeting client:load messages={["どうも", "こんにちは", "初めまして", "ようこそ","今日も月が綺麗だ"]} />
+	<Greeting client:load messages={["どうも", "こんにちは", "初めまして", "ようこそ","今日も月が綺麗だ","ねむいですね"]} />
 	<p>作ったばかりでCSSもないし、コンテンツも少ないし、チュートリアルの記事残ってるしで散々ですが、徐々に充実させていきます！</p>
 	<p><a href="/site/about/">このサイトについて</a></p>
 	<h2>Topics</h2>
