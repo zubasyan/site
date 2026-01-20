@@ -85,11 +85,37 @@ h1 {
 }
 
 html.dark {
-  background-color: #0d0950;
-  color: #fff;
+  background-color: #0f172a;
+  color: #e2e8f0;
 }
 
 .dark .nav-links a {
-  color: #fff;
+  color: #e2e8f0;
+}
+
+.dark nav {
+  border-color: #1e293b;
+}
+
+a {
+  color: #64748b; /* 穏やかなブルーグレー */
+  text-decoration-color: #cbd5e1;
+}
+
+a:hover,
+a:focus {
+  color: #475569; /* 少し濃いトーン */
+  text-decoration-color: #94a3b8;
+}
+
+html.dark a {
+  color: #cbd5e1; /* ダークでのやさしいライトグレー */
+  text-decoration-color: #94a3b8;
+}
+
+html.dark a:hover,
+html.dark a:focus {
+  color: #e2e8f0;
+  text-decoration-color: #cbd5e1;
 }
 
