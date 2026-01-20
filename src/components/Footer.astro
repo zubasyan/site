@@ -4,8 +4,42 @@
 footer {
   margin-top: auto;
   width: 100%;
-  padding: 1rem 2rem 3rem 4rem;
-  background: cornsilk;
+  padding: 2rem;
+  background-color: #f8fafc;
+  border-top: 2px solid #e2e8f0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer a {
+  color: #1e293b;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ff9776;
+}
+
+footer p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+:global(html.dark) footer {
+  background-color: #1e1b4b;
+  border-top-color: #312e81;
+}
+
+:global(html.dark) footer a {
+  color: #e2e8f0;
+}
+
+:global(html.dark) footer p {
+  color: #94a3b8;
 }
 </style>
 
